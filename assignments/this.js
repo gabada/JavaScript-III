@@ -17,7 +17,13 @@ console.log(this);
 // Principle 2
 
 // code example for Implicit Binding
-
+const sudent = {
+    name: 'Gill',
+    language: 'JavaScript',
+    learn: function () {
+        return `${this.name} is currently learning ${this.language}`;
+    }
+}
 // Principle 3
 
 // code example for New Binding
