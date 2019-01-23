@@ -46,3 +46,12 @@ tuna.makeSushi();
 const meal = {
     name: 'lunch'
 }
+
+const food = ['sushi', 'pizza', 'Mexican', 'Indian'];
+//In order to get lunch in the below function I needed this.name NOT this.meal.
+function whatToEat(food1, food2, food3, food4) {
+    return `For ${this.name} should I have ${food1}, ${food2}, ${food3}, or ${food4}?`;
+}
+
+const whatShouldIEat = whatToEat.bind(meal, ...food);
+console.log(whatShouldIEat());
