@@ -17,6 +17,7 @@
 
 function GameObject(attrs) {
   this.createdAt = date.now();
+  // attrs.dimensions will bring in the entire dimension object.
   this.dimensions = attrs.dimensions;
 }
 
