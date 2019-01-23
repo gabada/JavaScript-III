@@ -17,17 +17,32 @@ console.log(this);
 // Principle 2
 
 // code example for Implicit Binding
-const sudent = {
+const student = {
     name: 'Gill',
     language: 'JavaScript',
     learn: function () {
         return `${this.name} is currently learning ${this.language}`;
     }
 }
+
+student.learn();
 // Principle 3
 
 // code example for New Binding
+function Sushi(fish) {
+    this.fish = fish;
+    this.outside = 'seaweed';
+    this.makeSushi = function () {
+        return `I will make a ${this.fish} roll with ${this.outside} on the outside.`
+    }
+}
+const tuna = new Sushi('tuna');
+
+tuna.makeSushi();
 
 // Principle 4
 
 // code example for Explicit Binding
+const meal = {
+    name: 'lunch'
+}
