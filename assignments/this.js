@@ -1,10 +1,10 @@
 /* The for principles of "this";
 * in your own words. explain the four principle for the "this" keyword below.
 *
-* 1. 
-* 2. 
-* 3. 
-* 4. 
+* 1. binding to objects in window or global
+* 2. implicit or automatic binding inside a function in an object
+* 3. explicit binding which we can control inside a function, need to use call() or apply()
+* 4. New bindings when you have constructor functions and this is referng to specific instances or the object
 *
 * write out a code example of each explanation above
 */
