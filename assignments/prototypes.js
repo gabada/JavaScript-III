@@ -68,6 +68,57 @@ Humanoid.prototype.greet = function() {
   return `${this.name} offers a greeting in ${this.language}`
 }
 
+// * Give the Hero and Villains different methods that could be used to remove health points from
+// objects which could result in destruction if health gets to 0 or drops below 0;
+function Villain(vAttrs) {
+  Humanoid.call(this, vAttrs);
+}
+
+Villain.prototype = Object.create(Humanoid.prototype);
+
+Villain.prototype.bomb = function () {
+  return `${this.name} just threw a bomb. ${batman.glide()}`
+}
+
+Villain.prototype.laugh = function () {
+  return `${this.name} just laughed evilly. ${batman.cringe()}`
+}
+
+Villain.prototype.threat = function () {
+  return `${this.name} just called in a threat!`
+}
+
+Villain.prototype.shoot = function () {
+  return `AIEEE! ${this.name} just shot their gun! ${batman.batmobile()}`
+}
+
+function Hero(heroAttrs) {
+  Humanoid.call(this, heroAttrs);
+}
+
+Hero.prototype = Object.create(Humanoid.prototype);
+
+Hero.prototype.glide = function () {
+  return `${this.name} glided to safety.`
+}
+
+Hero.prototype.batmobile = function () {
+  return `${this.name} just summoned the Bat Mobile.`
+}
+
+Hero.prototype.punch = function () {
+  return `KAPOW ${this.name} just threw a punch! ${joker.destroy()}`
+}
+
+Hero.prototype.kick = function () {
+  return `BAM ${this.name} just landed a kick! ${joker.destroy()}`
+}
+
+Hero.prototype.cringe = function () {
+  return `GLIPP ${this.name} cringed.`
+}
+
+
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
   * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
@@ -127,6 +178,40 @@ Humanoid.prototype.greet = function() {
     language: 'Elvish',
   });
 
+  const batman = new Hero({
+    createdAt: new Date(),
+    dimensions: {
+      length: 2,
+      width: 2,
+      height: 6,
+    },
+    healthPoints: 50,
+    name: 'Batman',
+    team: 'Justice League',
+    weapons: [
+      'Utility Belt',
+      'Stealth',
+    ],
+    language: 'sonar',
+  });
+
+  const joker = new Villain({
+    createdAt: new Date(),
+    dimensions: {
+      length: 1,
+      width: 2,
+      height: 4,
+    },
+    healthPoints: 40,
+    name: 'The Joker',
+    team: 'Suicide Squad',
+    weapons: [
+      'Gun',
+      'Knife',
+    ],
+    language: 'insanity',
+  });
+  
   console.log(mage.createdAt);  // Today's date
   console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
   console.log(swordsman.healthPoints); // 15
@@ -137,6 +222,11 @@ Humanoid.prototype.greet = function() {
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+  console.log(batman.kick());
+  console.log(joker.laugh());
+  console.log(joker.bomb());
+  console.log(joker.shoot());
+  console.log(batman.punch());
 
 
   // Stretch task: 
