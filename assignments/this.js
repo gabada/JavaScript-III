@@ -25,7 +25,7 @@ const student = {
     }
 }
 
-student.learn();
+console.log(student.learn());
 // Principle 3
 
 // code example for New Binding
@@ -38,7 +38,7 @@ function Sushi(fish) {
 }
 const tuna = new Sushi('tuna');
 
-tuna.makeSushi();
+console.log(tuna.makeSushi());
 
 // Principle 4
 
