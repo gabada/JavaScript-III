@@ -15,6 +15,15 @@
   * destroy() // prototype method -> returns the string: 'Object was removed from the game.'
 */
 
+function GameObject(attrs) {
+  this.createdAt = date.now();
+  this.dimensions = attrs.dimensions;
+}
+
+GameObject.prototype.destroy = function() {
+  return 'Object was removed from the game.'
+}
+
 /*
   === CharacterStats ===
   * healthPoints
@@ -32,7 +41,8 @@
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
 */
- 
+
+
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
   * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
@@ -92,7 +102,7 @@
     language: 'Elvish',
   });
 
-  console.log(mage.createdAt); // Today's date
+  console.log(mage.createdAt);  // Today's date
   console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
   console.log(swordsman.healthPoints); // 15
   console.log(mage.name); // Bruce
